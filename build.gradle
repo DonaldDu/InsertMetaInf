@@ -1,13 +1,16 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlin_version = "1.4.30"
+//    ext.testPlugin = true
     repositories {
         google()
         jcenter()
+        mavenLocal()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        if (project.hasProperty('testPlugin')) classpath "com.github.DonaldDu:InsertMetaInf:1.0"
     }
 }
 

@@ -17,6 +17,7 @@ compileGroovy {
 publishGAV("com.github.DonaldDu:InsertMetaInf:1.0")
 dependencies {
     implementation gradleApi()
+    implementation localGroovy()
     testImplementation 'junit:junit:4.13.1'
     implementation "com.android.tools.build:gradle:4.1.2"
     implementation 'commons-io:commons-io:2.8.0'
