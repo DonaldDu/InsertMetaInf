@@ -1,0 +1,23 @@
+apply plugin: 'kotlin'
+apply plugin: 'groovy'
+apply plugin: 'java'
+
+sourceSets {
+    main.groovy { srcDirs += "src/main/java" }
+}
+
+compileKotlin {
+    kotlinOptions { jvmTarget = "1.8" }
+}
+compileGroovy {
+    dependsOn tasks.getByPath('compileKotlin')
+    classpath += files(compileKotlin.destinationDir)
+    classes.dependsOn compileGroovy
+}
+publishGAV("com.github.DonaldDu:InsertMetaInf:1.0")
+dependencies {
+    implementation gradleApi()
+    testImplementation 'junit:junit:4.13.1'
+    implementation "com.android.tools.build:gradle:4.1.2"
+    implementation 'commons-io:commons-io:2.8.0'
+}
